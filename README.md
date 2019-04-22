@@ -1,6 +1,6 @@
-# Simple GPS
+# [internet-shortcut](https://github.com/mhulse/internet-shortcut)
 
-Read/write GPS data to image using external dependency `exiftool`.
+Creates internet shortcut file or stream …
 
 More information coming soonish …
 
