@@ -1,0 +1,22 @@
+{
+  "name": "internet-shortcut",
+  "version": "1.0.0",
+  "description": "Creates internet shortcut file or stream …",
+  "author": "Michael Hulse",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "mocha ./test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhulse/internet-shortcut.git"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "mocha": "^6.0.2"
+  }
+}
