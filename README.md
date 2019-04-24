@@ -2,7 +2,7 @@
 
 Creates internet shortcut file or stream …
 
-See [`example.js`](./test/example.js`) for usage.
+See [`example.js`](./test/example.js) for usage.
 
 ## License
 
