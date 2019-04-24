@@ -30,5 +30,9 @@ module.exports = {
         named: 'always',
       },
     ],
+    semi: [
+      2,
+      'always',
+    ],
   },
 };
