@@ -3,7 +3,7 @@ const util = require('./lib/utility');
 module.exports = async (o = {}) => {
 
   if ( ! ((typeof o.uri === 'string') && util.validate(o.uri))) {
-    throw new TypeError(`Expected \`url\` to be a string and a valid URI, got \`${o.uri}\` (${typeof o.uri})`);
+    throw new TypeError(`Expected \`uri\` to be a valid string URI, got \`${o.uri}\` (${typeof o.uri})`);
   }
 
   if ( ! (o.name && o.name.toString().length)) {
@@ -18,6 +18,8 @@ module.exports = async (o = {}) => {
     [InternetShortcut]
     URL=${o.uri}
   `
+    // This will just replace spaces, whereas `\s` replaces all
+    // white-space characters (space, tab, \r, \n, \v \f):
     .replace(/ +/g, '')
     .trim();
 
