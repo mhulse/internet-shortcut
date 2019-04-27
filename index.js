@@ -1,4 +1,4 @@
-const util = require('./lib/utility');
+const util = require('./lib/util');
 
 module.exports = async (o = {}) => {
 
@@ -10,26 +10,35 @@ module.exports = async (o = {}) => {
     throw new TypeError(`Expected \`name\` to exist, got \`${o.name}\` (${typeof o.name})`);
   }
 
-  if ( ! ((typeof o.directory === 'string') && (o.directory.length > 0) && (await util.makeDir(o.directory)))) {
-    throw new TypeError(`Expected \`directory\` to be a string and resolve to a path that can be created programmatically, got \`${o.directory}\` (${typeof o.directory})`);
+  if ( ! ((typeof o.directory === 'string') && (o.directory.length > 0))) {
+    throw new TypeError(`Expected \`directory\` to be a string, got \`${o.directory}\` (${typeof o.directory})`);
   }
 
   const template = `
     [InternetShortcut]
     URL=${o.uri}
-  `
-    // This will just replace spaces, whereas `\s` replaces all
-    // white-space characters (space, tab, \r, \n, \v \f):
+  `;
+
+  // This will just replace spaces, whereas `\s` replaces all
+  // white-space characters (space, tab, \r, \n, \v \f):
+  template
     .replace(/ +/g, '')
     .trim();
 
   const data = Buffer.from(template);
+  const file = util.joinPaths(
+    util.resolvePath(o.directory),
+    `${o.name}.url`
+  );
 
   await util.writeFile(
-    util.joinPaths(o.directory, `${o.name}.url`),
+    file,
     data
   );
 
-  return data;
+  return {
+    file: file,
+    data: data,
+  };
 
 };
