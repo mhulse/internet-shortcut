@@ -17,11 +17,9 @@ module.exports = async (o = {}) => {
   const template = `
     [InternetShortcut]
     URL=${o.uri}
-  `;
-
-  // This will just replace spaces, whereas `\s` replaces all
-  // white-space characters (space, tab, \r, \n, \v \f):
-  template
+  `
+    // This will just replace spaces, whereas `\s` replaces all
+    // white-space characters (space, tab, \r, \n, \v \f):
     .replace(/ +/g, '')
     .trim();
 
