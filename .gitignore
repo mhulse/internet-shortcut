@@ -91,4 +91,5 @@ sitemap.xml.gz*~
 ####################
 
 node_modules
-test/*.url
+# TEST OUTPUT (example + mocha)
+test-output/
